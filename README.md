@@ -1,1 +1,1 @@
-#Python Flask & Jenkins for Covid-19 statistics
+Python Flask & Jenkins for Covid-19 statistics

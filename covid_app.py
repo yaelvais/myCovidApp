@@ -78,4 +78,4 @@ def highest_peak():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8080)  # run on port 8080, debug mode is on
+    app.run(host='0.0.0.0')
