@@ -32,18 +32,33 @@ def status():
 # info is cases/recoverd/deths according to the endpoint
 
 
+#def get_highest_peak(json_data, info):
+#    dic = json_data['timeline'][info]
+#    nums = list(dic.values())
+#    dates = list(dic.keys())
+#    max_peak = nums[1]-nums[0]
+#    curr_date = dates[1]
+#    for i in range(1, len(nums)):
+#        if (i+1 < len(nums)):
+#            if((nums[i+1]-nums[i]) > max_peak):
+#                max_peak = nums[i+1]-nums[i]
+#                curr_date = dates[i+1]
+#    return curr_date, max_peak
+
 def get_highest_peak(json_data, info):
     dic = json_data['timeline'][info]
-    nums = list(dic.values())
-    dates = list(dic.keys())
-    max_peak = nums[1]-nums[0]
-    curr_date = dates[1]
-    for i in range(1, len(nums)):
-        if (i+1 < len(nums)):
-            if((nums[i+1]-nums[i]) > max_peak):
-                max_peak = nums[i+1]-nums[i]
-                curr_date = dates[i+1]
-    return curr_date, max_peak
+    prev=0
+    max_peak=0
+    for i,(date,value) in enumerate(dic.items()):
+        if i==0:
+	        prev=value
+        curr_peak=value-prev
+        if curr_peak>max_peak:
+                max_peak=curr_peak
+                curr_date=date
+        prev=value
+    return curr_date,max_peak
+
 
 # Returns the date (and value) of the highest peak of new/recovered/deths
 # Covid-19 cases in the last 30 days for a required country.

@@ -1,6 +1,6 @@
-#Python Flask for Covid-19 statistics
+##Python Flask for Covid-19 statistics
 
-The script fetch Covid-19 data from disease.sh/ API.
+The script fetch Covid-19 data from disease.sh API.
 
 ## Installation
 
