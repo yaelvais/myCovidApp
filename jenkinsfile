@@ -1,0 +1,29 @@
+
+properties([parameters([text(defaultValue: '''israel
+bla
+usa''', description: 'list of countries to query the service', name: 'country')])])
+
+pipeline {
+    agent any
+
+    stages {
+        stage('git') {
+            steps {
+                git url: 'https://github.com/yaelvais/myCovidApp.git'
+            }
+        }
+        stage('run service') {
+            steps {
+                sh "python3 covid_app.py"
+            }
+        }
+        stage('query service') {
+            steps {
+                sh "curl localhost:5000/status"
+		sh "curl localhost:8080/newCasesPeak?country=${params.country}"
+		sh "curl localhost:8080/recoveredPeak?country=${params.country}"
+		sh "curl localhost:8080/deathsPeak?country=${params.country}"
+            }
+        }
+    }
+}

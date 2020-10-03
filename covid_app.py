@@ -53,7 +53,7 @@ def get_highest_peak(json_data, info):
         if i==0:
 	        prev=value
         curr_peak=value-prev
-        if curr_peak>max_peak:
+        if curr_peak>=max_peak:
                 max_peak=curr_peak
                 curr_date=date
         prev=value
