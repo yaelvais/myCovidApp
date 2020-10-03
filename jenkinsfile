@@ -7,7 +7,7 @@ pipeline {
                 git url: 'https://github.com/yaelvais/myCovidApp.git'
             }
         }
-	stage('Deploy'){
+	stage('start the service'){
 		steps{
 		    script{
 		        withEnv(['JENKINS_NODE_COOKIE=dontkill']) {

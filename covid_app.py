@@ -1,3 +1,4 @@
+#This script fetches Covid-19 data from disease.sh API, according to the requested query.
 from flask import Flask, jsonify, request
 import urllib3
 import json
@@ -30,20 +31,6 @@ def status():
 
 # helper function to get the relevent highest peak
 # info is cases/recoverd/deths according to the endpoint
-
-
-#def get_highest_peak(json_data, info):
-#    dic = json_data['timeline'][info]
-#    nums = list(dic.values())
-#    dates = list(dic.keys())
-#    max_peak = nums[1]-nums[0]
-#    curr_date = dates[1]
-#    for i in range(1, len(nums)):
-#        if (i+1 < len(nums)):
-#            if((nums[i+1]-nums[i]) > max_peak):
-#                max_peak = nums[i+1]-nums[i]
-#                curr_date = dates[i+1]
-#    return curr_date, max_peak
 
 def get_highest_peak(json_data, info):
     dic = json_data['timeline'][info]

@@ -5,9 +5,9 @@ The script fetches Covid-19 data from disease.sh API.
 
 ## Usage via jenkinsfile
 
-Add the parameters as a choice parameter, with the name "country".
+Please add the parameters as a choice parameter, with the name "country".
 The jenkins file clones the git repo, starts the script and then query the script, using the provided parameters.
-
+Please note that the file runs the commands as 'sh' (linux).
 
 ## Usage via shell
 
