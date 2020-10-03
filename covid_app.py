@@ -32,12 +32,12 @@ def status():
 # info is cases/recoverd/deths according to the endpoint
 
 
-def get_highest_peak(json_data, info: str):
-    dic: dict = json_data['timeline'][info]
+def get_highest_peak(json_data, info):
+    dic = json_data['timeline'][info]
     nums = list(dic.values())
     dates = list(dic.keys())
-    max_peak: int = nums[1]-nums[0]
-    curr_date: str = dates[1]
+    max_peak = nums[1]-nums[0]
+    curr_date = dates[1]
     for i in range(1, len(nums)):
         if (i+1 < len(nums)):
             if((nums[i+1]-nums[i]) > max_peak):
@@ -78,4 +78,4 @@ def highest_peak():
 
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0',port=5000)
