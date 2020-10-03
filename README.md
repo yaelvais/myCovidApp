@@ -9,14 +9,6 @@ Add the parameters as a choice parameter, with the name "country".
 The jenkins file clones the git repo, starts the script and then query the script, using the provided parameters.
 
 
-## Installation
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install flask.
-
-```bash
-pip install flask
-```
-
 ## Usage via shell
 
 You might need to install flask first:
@@ -30,7 +22,7 @@ pip install flask
 ```python
 python3 covid_app.py
 ```
-Then you can query the localhost:
+Then you can query the service:
 
 ```
 curl localhost:5000/status
